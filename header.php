@@ -14,6 +14,6 @@
 				<div class="menuitem cPointer">TANÁROK</div>
 				<div class="menuitem cPointer">GALÉRIA</div>
 				<div class="menuitem cPointer">HELYSZÍNEK</div>
-				<div class="menuitem cPointer">KAPCSOLAT</div>
+				<div class="menuitem cPointer mactive">KAPCSOLAT</div>
 			</div>
 		</div>
