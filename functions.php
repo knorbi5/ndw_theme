@@ -10,13 +10,7 @@
 	}
 	
 	function addContactSettingsGroup(){
-		add_settings_section('contactSettings', '', 'drawContactSettingsGroup', 'ndwcontact');
-		
-		register_setting('contactSettings', 'ndwphonenumber');
-		register_setting('contactSettings', 'ndwemail');
-		register_setting('contactSettings', 'ndwfb');
-		register_setting('contactSettings', 'ndwyt');
-		register_setting('contactSettings', 'ndwaddress');
+		add_settings_section('contactSettings', 'NDW elérhetőségek', 'drawContactSettingsGroup', 'ndwcontact');
 		
 		add_settings_field('ndwphonenumber', 'Telefonszám', 'drawndwPhonenumberInput', 'ndwcontact', 'contactSettings');
 		add_settings_field('ndwemail', 'E-mail cím', 'drawndwEmailInput', 'ndwcontact', 'contactSettings');
@@ -24,17 +18,27 @@
 		add_settings_field('ndwyt', 'Youtube link', 'drawndwYoutubeInput', 'ndwcontact', 'contactSettings');
 		add_settings_field('ndwaddress', 'Cím', 'drawndwAddressInput', 'ndwcontact', 'contactSettings');
 		
+		register_setting('ndwcontact', 'ndwphonenumber');
+		register_setting('ndwcontact', 'ndwemail');
+		register_setting('ndwcontact', 'ndwfb');
+		register_setting('ndwcontact', 'ndwyt');
+		register_setting('ndwcontact', 'ndwaddress');
+		
 	}
 	
 	function drawContactInputs(){
 		include_once("admin/ndwcontact.php");
-		settings_fields('contactSettings');
+		echo '<form method="POST" action="options.php">';
+		
+		settings_fields('ndwcontact');
 		do_settings_sections('ndwcontact');
 		submit_button('Mentés');
+		
+		echo '</form>';
 	}
 	
 	function drawContactSettingsGroup(){
-		
+		echo '<p>A láblécben, illetve a kapcsolat menüpontban megjelenő adatok beállítása</p>';
 	}
 	
 	function drawndwPhonenumberInput(){

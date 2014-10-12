@@ -39,6 +39,7 @@ body{
 #mainmenu{
 	z-index: 998;
 	position: fixed;
+	top: 0;
 	background: #656565;
 	height: 40px;
 	width: 100%;
@@ -60,8 +61,8 @@ body{
 	line-height: 40px;
 	color: #e2e2e2;
 	float: left;
-	margin-left: 52px;
-	padding: 0 10px 0 10px;
+	margin-left: 50px;
+	padding: 0 15px 0 15px;
 	font-size: 14px;
 }
 .menuitem:hover{
@@ -74,8 +75,39 @@ body{
 
 .mactive{
 	color: #e2e2e2;
-	padding-top: 6px;
+	padding-top: 5px;
 	background: #474747;
+}
+/******************/
+/**** CONTACTS ****/
+#ndwcontacts{
+	background: #e2e2e2;
+	padding: 20px;
+	position: absolute;
+	top: 70px;
+	z-index: 998;
+}
+
+#ndwcontacts img{
+	width: 25px;
+	margin: 0 5px 0 5px;
+}
+
+#ndwArrow_up{
+	width: 15px;
+	position: absolute;
+	top: -9px;
+}
+/*******************/
+/***** GALLERY *****/
+.galleryCategory{
+	display: inline-block;
+	margin: 150px auto 20px auto;
+}
+
+.galleryItem{
+	margin: 0 20px 0 20px;
+	
 }
 /******************/
 /***** FOOTER *****/
