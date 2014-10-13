@@ -22,7 +22,16 @@ body{
 	clear: both;
 }
 .hidden{
-	display: none;
+	display: none !important;
+}
+.leftFloat{
+	float: left;
+}
+.rightFloat{
+	float: right;
+}
+.bgWhite{
+	background: White;
 }
 #fadeState{
 	z-index: 995;
@@ -33,6 +42,13 @@ body{
 	height: 100%;
 	opacity: 0.6;
 	background: White;
+}
+/******************/
+/****** MAIN ******/
+#content{
+	width: 100%;
+	padding: 100px;
+	box-sizing: border-box;
 }
 /******************/
 /****** MENU ******/
@@ -86,11 +102,14 @@ body{
 	position: absolute;
 	top: 70px;
 	z-index: 998;
+	box-shadow: 0px 0px 2px Grey;
 }
 
-#ndwcontacts img{
+.ndwcontactsIcons{
+	position: relative;
+	top: 5px;
 	width: 25px;
-	margin: 0 5px 0 5px;
+	margin: 0 10px 0 0;
 }
 
 #ndwArrow_up{
@@ -98,16 +117,46 @@ body{
 	position: absolute;
 	top: -9px;
 }
+
+.ndw_googlemaps{
+	margin-top: 20px;
+}
 /*******************/
 /***** GALLERY *****/
 .galleryCategory{
-	display: inline-block;
-	margin: 150px auto 20px auto;
+	margin: 0 auto 10px auto;
+	display: table;
+	max-width: 85%;
 }
 
 .galleryItem{
+	display: inline-block;
+}
+
+.galleryItem img{
 	margin: 0 20px 0 20px;
-	
+	height: 150px;
+}
+
+.galleryCategoryTitle{
+	position: relative;
+	text-transform: uppercase;
+	color: #656565;
+	width: 100%;
+	margin: 10px 0 10px 0;
+}
+
+.galleryCategoryTitle hr{
+	position: absolute;
+	top: 0px;
+	left: 120px;
+	width: 90%;
+	background: #656565;
+	height: 1px;
+}
+
+.gallery_arrow{
+	width: 20px;
 }
 /******************/
 /***** FOOTER *****/

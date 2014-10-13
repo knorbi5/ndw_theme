@@ -36,12 +36,23 @@ jQuery(document).ready(function(){
 			jQuery("#ndwcontacts").removeClass("hidden");
 			fadeContent();
 			contactsOpened = true;
-		}else{
-			jQuery(this).removeClass("mactive");
-			jQuery("#ndwcontacts").addClass("hidden");
-			fadeContent();
-			contactsOpened = false;
 		}
 	});
+	
+	jQuery(document).mouseup(function (e){
+		var container = jQuery("#ndwcontacts");
+		if(contactsOpened){
+			if (!container.is(e.target)	&& container.has(e.target).length === 0){
+				hideContactsBox(jQuery("#ndwContactsMenu"));
+			}
+		}
+	});
+	
+	function hideContactsBox(elementToHide){
+		elementToHide.removeClass("mactive");
+		jQuery("#ndwcontacts").addClass("hidden");
+		fadeContent();
+		contactsOpened = false;
+	}
 	/* *********************** */
 });
