@@ -159,6 +159,23 @@ body{
 	width: 20px;
 }
 /******************/
+/***** TEACHERS *****/
+#ndwTeachers_outer{
+	width: 100%;
+	background: Grey;
+	padding: 10px;
+}
+
+#ndwTeachers_container{
+	margin: 0 auto 0 auto;
+	display: inline-block;
+}
+
+.ndwTeacher{
+	display: inline-block;
+	margin: 50px auto 0 auto;
+}
+/******************/
 /***** FOOTER *****/
 #footeritemsContainer{
 	position: fixed;
@@ -176,5 +193,11 @@ body{
 .footeritem img{
 	width: 30px;
 	margin: 5px 0 0 10px;
+}
+/*******************/
+/****** ADMIN ******/
+.ndwTimetable td{
+	border: 1px solid Grey;
+	padding: 10px;
 }
 /******************/

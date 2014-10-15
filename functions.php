@@ -59,8 +59,8 @@
 	
 	// HELYSZÍNEK
 
-	add_action('init', 'create_post_type');
-	function create_post_type() {
+	add_action('init', 'create_locations_post_type');
+	function create_locations_post_type(){
 		register_post_type('ndwlocations',
 			array(
 			  'labels' => array(
@@ -72,13 +72,29 @@
 		);
 	}
 	
-	add_action('admin_menu', 'addPracticeSubmenu');
+	add_action('admin_menu', 'addLocationsSubmenu');
 
-	function addPracticeSubmenu(){
-		add_submenu_page('edit.php?post_type=ndwlocations', 'Órarend', 'Órarend', 'manage_options', 'ndwlocations', 'drawPracticePostSubmenu');
+	function addLocationsSubmenu(){
+		add_submenu_page('edit.php?post_type=ndwlocations', 'Órarendek', 'Órarendek', 'manage_options', 'ndwlocations', 'drawLocationsSettings');
 	}
 	
-	function drawPracticePostSubmenu(){
-		echo "<div class='wrapper'><h2>Órarend szerkesztése</h2></div>";
+	function drawLocationsSettings(){
+		include_once('admin/ndwtimetables.php');
+	}
+	
+	// TANÁROK
+
+	add_action('init', 'create_teachers_post_type');
+	function create_teachers_post_type(){
+		register_post_type('ndwteachers',
+			array(
+			  'labels' => array(
+				'name' => __('Tanárok')
+			  ),
+			  'public' => true,
+			  'has_archive' => true,
+			  'supports' => array('title', 'editor', 'thumbnail')
+			)
+		);
 	}
 ?>
