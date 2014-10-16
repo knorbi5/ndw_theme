@@ -43,6 +43,13 @@ body{
 	opacity: 0.6;
 	background: White;
 }
+#menuLayer{
+	width: 100%;
+	background: grey;
+	position: fixed;
+	top: 40px;
+	z-index: 996;
+}
 /******************/
 /****** MAIN ******/
 #content{
@@ -162,21 +169,71 @@ body{
 /***** TEACHERS *****/
 #ndwTeachers_outer{
 	width: 100%;
-	background: Grey;
-	padding: 10px;
+	background: #313131;
+	padding: 10px 0 10px 0;
 }
 
 #ndwTeachers_container{
 	margin: 0 auto 0 auto;
-	display: inline-block;
+	display: table;
 }
 
 .ndwTeacher{
 	display: inline-block;
-	margin: 50px auto 0 auto;
+	margin: 0 5px 0 5px;
+}
+
+.ndwTeacher img{
+	height: 180px;
+}
+
+.ndwTeacherAbout{
+	width: 650px;
+	margin: 0 auto 0 auto;
+}
+
+#ndwTeacherAboutContainer{
+	padding: 25px;
+}
+
+#ndwTeacherAboutContainer img{
+	float: left;
+	padding: 0 5px 20px 0;
+	height: 400px;
+}
+
+#ndwTeacherAboutContainer p{
+	padding-top: 5px;
+}
+
+#ndwTeacherSelectedArrow{
+	width: 15px;
+	position: relative;
+	top: -14px;
 }
 /******************/
 /***** FOOTER *****/
+.footerClassInProgress_Container{
+	position: fixed;
+	bottom: 0;
+	left: 50px;
+}
+
+.footerClassInProgress{
+	padding: 5px 20px 5px 20px;
+	font-size: 12px;
+}
+
+.footerInProgress{
+	color: White;
+	background: #197b30;
+}
+
+.footerNextClass{
+	color: #474747;
+	background: #e2e2e2;
+}
+
 #footeritemsContainer{
 	position: fixed;
 	bottom: 0;

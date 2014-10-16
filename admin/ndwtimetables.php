@@ -1,7 +1,7 @@
 <script type="text/javascript">
 	function addNewSettingField(id){
 		var randomId = Math.floor((Math.random() * 1000) + 1);
-		jQuery("#tb_" + id).append("<tr id='tb_data_" + randomId + "' class='timetableData'><td class='teacherName'><input type='text' value=''></input></td><td class='startTime'><input type='text' value=''></input></td><td class='endTime'><input type='text' value=''></input></td><td class='dayOfWeek'><select><option value='1'>Hétfő</option><option value='2'>Kedd</option><option value='3'>Szerda</option><option value='4'>Csütörtök</option><option value='5'>Péntek</option><option value='6'>Szombat</option><option value='7'>Vasárnap</option></select></td><td class='style'><input type='text' value=''></input></td><td style='border: none;' onClick='deleteSettingField(" + randomId + ")'><img class='cPointer' style='width: 15px;' src='<?php echo get_bloginfo("template_directory"); ?>/images/admin_icons/minus.png'></td></tr>");
+		jQuery("#tb_" + id).append("<tr id='tb_data_" + randomId + "' class='timetableData'><td class='teacherName'><input type='text' value=''></input></td><td class='startTime'><input type='text' value=''></input></td><td class='endTime'><input type='text' value=''></input></td><td class='dayOfWeek'><select><option value='1'>Hétfő</option><option value='2'>Kedd</option><option value='3'>Szerda</option><option value='4'>Csütörtök</option><option value='5'>Péntek</option><option value='6'>Szombat</option><option value='0'>Vasárnap</option></select></td><td class='style'><input type='text' value=''></input></td><td style='border: none;' onClick='deleteSettingField(" + randomId + ")'><img class='cPointer' style='width: 15px;' src='<?php echo get_bloginfo("template_directory"); ?>/images/admin_icons/minus.png'></td></tr>");
 	}
 	
 	function deleteSettingField(id){
@@ -9,44 +9,50 @@
 	}
 	
 	function saveTimetable(){
-		jQuery.ajax({
-			type: "POST",
-			url: "<?php echo get_bloginfo('template_directory'); ?>/admin/interfaces/resetTimetable.php",
-			async: false
-		});
+		jQuery("#saveTimetableBtn").html("Mentés folyamatban...");
 		
-		jQuery(".timetableData").each(function(){
-			var teacherNameParam = jQuery(this).children(".teacherName").children().val();
-			var startTimeParam = jQuery(this).children(".startTime").children().val();
-			var endTimeParam = jQuery(this).children(".endTime").children().val();
-			var locationIDParam = jQuery(this).parent().parent().attr('data-locationId');
-			var dayOfWeekParam = jQuery(this).children(".dayOfWeek").children().val();
-			var styleParam = jQuery(this).children(".style").children().val();
-			
+		setTimeout(function(){
 			jQuery.ajax({
 				type: "POST",
-				url: "<?php echo get_bloginfo('template_directory'); ?>/admin/interfaces/saveTimetable.php",
-				data:{
-					locationID: locationIDParam,
-					teacherName: teacherNameParam,
-					startTime: startTimeParam,
-					endTime: endTimeParam,
-					dayOfWeek: dayOfWeekParam,
-					style: styleParam
-				}
+				url: "<?php echo get_bloginfo('template_directory'); ?>/admin/interfaces/resetTimetable.php",
+				async: false
 			});
-		}).promise().done(function(){
-			jQuery(".wrapper").before("<div id='ndw_status' class='updated' style='margin-left: 0;'><p>Órarendek mentve</p></div>");
-			jQuery('html,body').scrollTop(0);
 			
-			function startStatusTiming(){
-				setTimeout(function(){
-					jQuery("#ndw_status").remove();
-				}, 2000);
-			}
-			startStatusTiming();
-			//location.reload();
-		});
+			jQuery(".timetableData").each(function(){
+				var teacherNameParam = jQuery(this).children(".teacherName").children().val();
+				var startTimeParam = jQuery(this).children(".startTime").children().val();
+				var endTimeParam = jQuery(this).children(".endTime").children().val();
+				var locationIDParam = jQuery(this).parent().parent().attr('data-locationId');
+				var dayOfWeekParam = jQuery(this).children(".dayOfWeek").children().val();
+				var styleParam = jQuery(this).children(".style").children().val();
+				
+				jQuery.ajax({
+					type: "POST",
+					url: "<?php echo get_bloginfo('template_directory'); ?>/admin/interfaces/saveTimetable.php",
+					data:{
+						locationID: locationIDParam,
+						teacherName: teacherNameParam,
+						startTime: startTimeParam,
+						endTime: endTimeParam,
+						dayOfWeek: dayOfWeekParam,
+						style: styleParam
+					},
+					async: false
+				});
+			}).promise().done(function(){
+				jQuery(".wrapper").before("<div id='ndw_status' class='updated' style='margin-left: 0;'><p>Órarendek mentve</p></div>");
+				jQuery('html,body').scrollTop(0);
+				
+				function startStatusTiming(){
+					setTimeout(function(){
+						jQuery("#ndw_status").remove();
+						jQuery("#saveTimetableBtn").html("Mentés");
+					}, 2000);
+				}
+				startStatusTiming();
+				//location.reload();
+			});
+		}, 500);
 	}
 </script>
 <script type="text/javascript" src="<?php echo get_bloginfo('template_directory'); ?>/js/jquery-1.11.1.min.js"></script>
@@ -90,7 +96,7 @@
 							<option value="4" <?php if($result->dayOfWeek == 4){echo 'selected';}; ?>>Csütörtök</option>
 							<option value="5" <?php if($result->dayOfWeek == 5){echo 'selected';}; ?>>Péntek</option>
 							<option value="6" <?php if($result->dayOfWeek == 6){echo 'selected';}; ?>>Szombat</option>
-							<option value="7" <?php if($result->dayOfWeek == 7){echo 'selected';}; ?>>Vasárnap</option>
+							<option value="7" <?php if($result->dayOfWeek == 0){echo 'selected';}; ?>>Vasárnap</option>
 						</select>
 					</td>
 					<td class="style"><input type='text' value="<?php echo $result->style; ?>"></input></td>
@@ -105,5 +111,5 @@
 		}
 	?>
 	<br>
-	<button class="button-primary" onClick="saveTimetable();">Mentés</button>
+	<button id="saveTimetableBtn" class="button-primary" onClick="saveTimetable();">Mentés</button>
 </div>
