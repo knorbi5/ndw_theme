@@ -10,16 +10,14 @@ Template Name: Galeria
 		array('parent' => $galleryID)
 	);
 	?>
-	<link rel="stylesheet" href="<?php echo get_bloginfo('template_directory'); ?>/swipebox/swipebox.min.css">
 	<style type="text/css">
 		body{
 			background: #f4f4f4;
 		}
 	</style>
-	<script src="<?php echo get_bloginfo('template_directory'); ?>/swipebox/jquery.swipebox.min.js"></script>
 	<script type="text/javascript">
-		;( function( $ ) {
-			$( '.swipebox' ).swipebox({hideBarsDelay : 0});
+		;( function( jQuery ) {
+			jQuery( '.swipebox' ).swipebox({hideBarsDelay : 0});
 		} )( jQuery );
 	
 		function closeCategory(id){

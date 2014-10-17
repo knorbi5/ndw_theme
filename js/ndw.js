@@ -30,9 +30,9 @@ jQuery(document).ready(function(){
 	positionContactsBox();
 	positionContactsArrow();
 	
-	jQuery("#ndwContactsMenu").click(function(){	
+	jQuery("#ndwContactsMenu").click(function(){
 		if(!contactsOpened){
-			jQuery(this).addClass("mactive");
+			//jQuery(this).addClass("mactive");
 			jQuery("#ndwcontacts").removeClass("hidden");
 			fadeContent();
 			contactsOpened = true;
@@ -49,7 +49,7 @@ jQuery(document).ready(function(){
 	});
 	
 	function hideContactsBox(elementToHide){
-		elementToHide.removeClass("mactive");
+		//elementToHide.removeClass("mactive");
 		jQuery("#ndwcontacts").addClass("hidden");
 		fadeContent();
 		contactsOpened = false;

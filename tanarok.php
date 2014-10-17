@@ -5,6 +5,7 @@ Template Name: Tanarok
 require_once('../../../wp-blog-header.php');
 ?>
 	<script type="text/javascript">
+		/* ÁTMENETILEG KIKAPCSOLVA (CSAK KÉPEKET KÉRTEK)
 		function viewTeacher(idToShow){
 			// Előző törlése
 			jQuery(".ndwTeacherAbout").each(function(){
@@ -19,7 +20,11 @@ require_once('../../../wp-blog-header.php');
 			var calculatedLeftPosition = (jQuery("#" + idToShow).position().left) + (jQuery("#" + idToShow).width()/2) - (jQuery("#ndwTeacherSelectedArrow").width()/2);
 			calculatedLeftPosition = calculatedLeftPosition + "px";
 			jQuery("#ndwTeacherSelectedArrow").css('left', calculatedLeftPosition);
-		}
+		}*/
+		
+		;( function( jQuery ) {
+			jQuery( '.teachers_swipebox' ).swipebox({hideBarsDelay : 0});
+		} )( jQuery );
 	</script>
 	<div id="ndwTeachers_outer">
 		<div id="ndwTeachers_container">
@@ -33,13 +38,13 @@ require_once('../../../wp-blog-header.php');
 
 		foreach($posts as $post){
 ?>
-			<div id="<?php echo $post->ID; ?>" class="ndwTeacher cPointer" onClick="viewTeacher(<?php echo $post->ID; ?>)"><img src="<?php echo wp_get_attachment_image_src(get_post_thumbnail_id($post->ID), 'medium')[0]; ?>"></div>
+			<div id="<?php echo $post->ID; ?>" class="ndwTeacher cPointer"><a class="teachers_swipebox" href="<?php echo wp_get_attachment_image_src(get_post_thumbnail_id($post->ID), 'full')[0]; ?>"><img src="<?php echo wp_get_attachment_image_src(get_post_thumbnail_id($post->ID), 'medium')[0]; ?>"></a></div>
 <?php
 		}
 ?>
 		</div>
 	</div>
-	<img id="ndwTeacherSelectedArrow" class="hidden" src="<?php echo get_bloginfo('template_directory'); ?>/images/arrow_up_medium.png">
+	<!-- ÁTMENETILEG KIKAPCSOLVA (CSAK KÉPEKET KÉRTEK) <img id="ndwTeacherSelectedArrow" class="hidden" src="<?php echo get_bloginfo('template_directory'); ?>/images/arrow_up_medium.png"> -->
 	<div id="ndwTeacherAboutContainer">
 <?php
 		foreach($posts as $post){

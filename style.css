@@ -45,7 +45,6 @@ body{
 }
 #menuLayer{
 	width: 100%;
-	background: grey;
 	position: fixed;
 	top: 40px;
 	z-index: 996;
@@ -84,8 +83,7 @@ body{
 	line-height: 40px;
 	color: #e2e2e2;
 	float: left;
-	margin-left: 50px;
-	padding: 0 15px 0 15px;
+	margin-left: 70px;
 	font-size: 14px;
 }
 .menuitem:hover{
@@ -100,6 +98,27 @@ body{
 	color: #e2e2e2;
 	padding-top: 5px;
 	background: #474747;
+}
+
+#selectedInPageMenuIndicator{
+	width: 15px;
+	position: absolute;
+	top: 40px;
+	left: 150px;
+}
+/******************/
+/****** INDEX ******/
+#mainArticle{
+	margin: 0 auto 0 auto;
+	display: table;
+}
+
+#mainArticleDesc{
+	height: 250px;
+	position: absolute;
+	top: 80px;
+	right: 0;
+	padding: 20px;
 }
 /******************/
 /**** CONTACTS ****/
@@ -170,7 +189,7 @@ body{
 #ndwTeachers_outer{
 	width: 100%;
 	background: #313131;
-	padding: 10px 0 10px 0;
+	padding: 20px 0 10px 0;
 }
 
 #ndwTeachers_container{
@@ -184,7 +203,7 @@ body{
 }
 
 .ndwTeacher img{
-	height: 180px;
+	height: 200px;
 }
 
 .ndwTeacherAbout{
