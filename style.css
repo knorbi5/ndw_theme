@@ -120,6 +120,40 @@ body{
 	right: 0;
 	padding: 20px;
 }
+
+#ndwPostViewer{
+	width: 1000px;
+	height: 400px;
+	overflow: scroll;
+}
+
+#ndwPostViewerScroller{
+	width: 300px;
+	display: inline-block;
+}
+
+.ndwPostViewerPost{
+	padding: 10px;
+}
+
+.ndwPostViewerPost img{
+	width: 40px;
+}
+
+#ndwPostViewerSelectedImage{
+	position: absolute;
+	max-height: 400px;
+	margin-left: 20px;
+}
+
+#indexFooter{
+	width: 100%;
+	position: absolute;
+	left: 0;
+	bottom: 0;
+	height: 150px;
+	background: #474747;
+}
 /******************/
 /**** CONTACTS ****/
 #ndwcontacts{
