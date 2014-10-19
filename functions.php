@@ -57,6 +57,30 @@
 		echo "<input name='ndwaddress' type='text' value=".get_option('ndwaddress').">";
 	}
 	
+	// YOUTUBE LINK
+	
+	add_action('admin_init', 'addYoutubeLinkField');
+	
+	function addYoutubeLinkField(){
+		add_meta_box(
+			'ndwYoutubeLink',
+			'Youtube videó link',
+			'drawNdwYoutubeLinkField',
+			'post',
+			'normal',
+			'default'
+		);
+	}
+	
+	function drawNdwYoutubeLinkField($post){
+		echo '<input type="text" class="regular-text" name="ndwYoutubeLink" value="'.get_post_meta($post->ID, 'ndwYoutubeLink')[0].'"></input>';
+	}
+	
+	function saveNdwYoutubeLinkField($post_id) {
+		update_post_meta($post_id, 'ndwYoutubeLink', $_POST['ndwYoutubeLink']);
+	}
+	add_action('save_post', 'saveNdwYoutubeLinkField' );
+	
 	// HELYSZÍNEK
 
 	add_action('init', 'create_locations_post_type');
@@ -81,6 +105,30 @@
 	function drawLocationsSettings(){
 		include_once('admin/ndwtimetables.php');
 	}
+	
+	/* Helyszínek post típus meta mező */
+	
+	add_action('admin_init', 'addGoogleMapsField');
+	
+	function addGoogleMapsField(){
+		add_meta_box(
+			'ndwLocationMapsPos',
+			'Google Maps link',
+			'drawNdwLocationMapsPos',
+			'ndwlocations',
+			'normal',
+			'default'
+		);
+	}
+	
+	function drawNdwLocationMapsPos($post){
+		echo '<input type="text" class="regular-text" name="ndwLocationMapsPos" value="'.get_post_meta($post->ID, 'ndwLocationGmaps')[0].'"></input>';
+	}
+	
+	function saveNdwLocationMaps($post_id) {
+		update_post_meta($post_id, 'ndwLocationGmaps', $_POST['ndwLocationMapsPos']);
+	}
+	add_action( 'save_post', 'saveNdwLocationMaps' );
 	
 	// TANÁROK
 

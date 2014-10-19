@@ -5,10 +5,12 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
         <title><?php wp_title(); ?></title>
         <link rel="stylesheet" type="text/css" href="<?php echo get_bloginfo('template_directory'); ?>/style.css">
-		<link rel="stylesheet" href="<?php echo get_bloginfo('template_directory'); ?>/swipebox/swipebox.min.css">
+		<link rel="stylesheet" href="<?php echo get_bloginfo('template_directory'); ?>/extensions/swipebox/swipebox.min.css">
+		<link rel="stylesheet" href="<?php echo get_bloginfo('template_directory'); ?>/extensions/mcustomscrollbar/jquery.mCustomScrollbar.css">
 		<script type="text/javascript" src="<?php echo get_bloginfo('template_directory'); ?>/js/jquery-1.11.1.min.js"></script>
 		<script type="text/javascript" src="<?php echo get_bloginfo('template_directory'); ?>/js/ndw.js"></script>
-		<script src="<?php echo get_bloginfo('template_directory'); ?>/swipebox/jquery.swipebox.min.js"></script>
+		<script src="<?php echo get_bloginfo('template_directory'); ?>/extensions/swipebox/jquery.swipebox.min.js"></script>
+		<script src="<?php echo get_bloginfo('template_directory'); ?>/extensions/mcustomscrollbar/jquery.mCustomScrollbar.concat.min.js"></script>
 		<script type="text/javascript">
 			var openedBy = "";
 		
