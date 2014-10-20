@@ -58,6 +58,7 @@ jQuery(document).ready(function(){
 	/***** KAPCSOLAT DOBOZ *****/
 	jQuery(".footerClassInProgress_Container").click(function(){
 		jQuery(".footerNextClass").toggleClass("hidden");
+		jQuery(".footerClassInProgressHidden").toggleClass("hidden");
 		jQuery("#footerClassInProgressArrowUp").toggleClass("hidden");
 		jQuery("#footerClassInProgressArrowDown").toggleClass("hidden");
 	});
