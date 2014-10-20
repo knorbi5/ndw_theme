@@ -9,17 +9,23 @@
 	$allClasses = $wpdb->get_results("SELECT * FROM wp_ndw_timetables WHERE isActive = 1 ORDER BY dayOfWeek ASC;");
 ?>
 		<footer>
-			<div class="footerClassInProgress_Container">
+			<div class="footerClassInProgress_Container cPointer">
 				<?php
 					foreach($allClasses as $class){
 						if($class->dayOfWeek == $dw){
 							if(strtotime($class->startTime) <= strtotime($tm) && strtotime($class->endTime) >= strtotime($tm)){
 				?>
-								<div class="footerClassInProgress footerInProgress">Jelenleg <?php echo $class->teacherName; ?> tart képzést (<?php echo $class->startTime." - ".$class->endTime; ?>)</div>
+								<div class="footerClassInProgress footerInProgress">Jelenleg <?php echo $class->teacherName; ?> tart képzést (<?php echo $class->startTime." - ".$class->endTime; ?>) <img id="footerClassInProgressArrowUp" style="width: 12px; margin-left: 5px;" src="<?php echo get_bloginfo('template_directory'); ?>/images/arrow_up.png"><img id="footerClassInProgressArrowDown" class="hidden" style="width: 12px; margin-left: 5px;" src="<?php echo get_bloginfo('template_directory'); ?>/images/arrow_down.png"></div>
 				<?php
-							}else if(strtotime($class->startTime) > strtotime($tm)){
+							}
+						}
+					}
+					
+					foreach($allClasses as $class){
+						if($class->dayOfWeek == $dw){
+							if(strtotime($class->startTime) > strtotime($tm)){
 				?>
-								<div class="footerClassInProgress footerNextClass"><?php echo $class->teacherName; ?> órája következik (<?php echo $class->startTime." - ".$class->endTime; ?>)</div>
+								<div class="footerClassInProgress footerNextClass hidden"><?php echo $class->teacherName; ?> órája következik (<?php echo $class->startTime." - ".$class->endTime; ?>)</div>
 				<?php
 							}
 						}

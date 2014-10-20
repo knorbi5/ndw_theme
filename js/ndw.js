@@ -55,4 +55,11 @@ jQuery(document).ready(function(){
 		contactsOpened = false;
 	}
 	/* *********************** */
+	/***** KAPCSOLAT DOBOZ *****/
+	jQuery(".footerClassInProgress_Container").click(function(){
+		jQuery(".footerNextClass").toggleClass("hidden");
+		jQuery("#footerClassInProgressArrowUp").toggleClass("hidden");
+		jQuery("#footerClassInProgressArrowDown").toggleClass("hidden");
+	});
+	/* *********************** */
 });
