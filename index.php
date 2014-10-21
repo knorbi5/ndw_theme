@@ -34,7 +34,7 @@
 	</script>
 	<div id="content">
 		<div id="mainArticle">
-			<div class="fb-like-box" data-href="https://www.facebook.com/NewDanceWorld?fref=ts" data-width="280" data-colorscheme="light" data-show-faces="true" data-header="false" data-stream="false" data-show-border="true"></div>
+			<div class="fb-like-box" data-href="https://www.facebook.com/NewDanceWorld?fref=ts" data-width="400" data-colorscheme="light" data-show-faces="true" data-header="false" data-stream="false" data-show-border="true"></div>
 <?php
 			foreach($posts as $post){
 				$embedded = wp_oembed_get(get_post_meta($post->ID, 'ndwYoutubeLink')[0], array('width'=>450));
@@ -59,8 +59,8 @@
 			</div>
 		</div>
 		<div id="ndwPostViewerContainer">
-			<div id="ndwPostViewerHelptext">KIEMELT CIKKEK<img src="<?php echo get_bloginfo('template_directory'); ?>/images/selectedInPageMenu.png"></div>
 			<div id="ndwPostViewer">
+			<div id="ndwPostViewerHelptext">KIEMELT CIKKEK<img src="<?php echo get_bloginfo('template_directory'); ?>/images/selectedInPageMenu.png"></div>
 				<div id="ndwPostViewerScroller">
 <?php
 					$args = array('category_name'=>'kiemelt', 'posts_per_page'=>-1, 'orderby'=>'post_date', 'order'=>'DESC');
