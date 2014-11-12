@@ -34,11 +34,7 @@
 	</script>
 	<div id="content">
 		<div id="mainArticle">
-<<<<<<< HEAD
 			<div class="fb-like-box" data-href="https://www.facebook.com/NewDanceWorld?fref=ts" data-width="250" data-colorscheme="light" data-show-faces="true" data-header="false" data-stream="false" data-show-border="true"></div>
-=======
-			<div class="fb-like-box" data-href="https://www.facebook.com/NewDanceWorld?fref=ts" data-width="400" data-colorscheme="light" data-show-faces="true" data-header="false" data-stream="false" data-show-border="true"></div>
->>>>>>> origin/master
 <?php
 			foreach($posts as $post){
 				$embedded = wp_oembed_get(get_post_meta($post->ID, 'ndwYoutubeLink')[0], array('width'=>450));
