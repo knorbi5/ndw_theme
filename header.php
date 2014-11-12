@@ -74,16 +74,16 @@
 				<div id="ndwContactsMenu" class="menuitem cPointer">KAPCSOLAT</div>
 			</div>
 		</div>
-		<div id="ndwcontacts" class="hidden">
-			<img id="ndwArrow_up" src="<?php echo get_bloginfo('template_directory'); ?>/images/arrow_up.png">
+		<div id="ndwcontacts" class="hidden" style="background: url('<?php echo get_bloginfo('template_directory'); ?>/images/backgrounds/transparent_grey.png') repeat;">
+			<img id="ndwArrow_up" src="<?php echo get_bloginfo('template_directory'); ?>/images/arrow_up_transparent.png">
 			<?php
 				$contacts = ['ndwphonenumber', 'ndwemail', 'ndwfb', 'ndwyt'];
 				foreach($contacts as $contact){
-					echo "<img class='ndwcontactsIcons' src='".get_bloginfo('template_directory')."/images/icons/".$contact.".png'>";
+					echo "<img class='ndwcontactsIcons' src='".get_bloginfo('template_directory')."/images/icons/".$contact."_light.png'>";
 					echo get_option($contact)."<br>";
 				}
 			?>
-			<iframe class="ndw_googlemaps" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d172572.57959586816!2d19.13030305000001!3d47.48121344999993!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4741c334d1d4cfc9%3A0x400c4290c1e1160!2sBudapest!5e0!3m2!1shu!2shu!4v1413231648595" width="300" height="200" frameborder="0" style="border:0"></iframe>
+			<iframe class="ndw_googlemaps" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2696.7968034746696!2d19.03324399999999!3d47.474389!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4741ddc9cd9f8873%3A0x60bf69fe24eaf0ba!2sKarolina+%C3%BAt+65%2C+Budapest%2C+1113!5e0!3m2!1shu!2shu!4v1413926494890" width="300" height="200" frameborder="0" style="border:0"></iframe>
 		</div>
 		<div id="fadeState" class="hidden"></div>
 		<div id="menuLayer" class="hidden" style="background: url('<?php echo get_bloginfo('template_directory'); ?>/images/backgrounds/transparent_grey.png') repeat;"></div>
