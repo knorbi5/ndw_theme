@@ -32,6 +32,9 @@ jQuery(document).ready(function(){
 	
 	jQuery("#ndwContactsMenu").click(function(){
 		if(!contactsOpened){
+			// MENÜPONTOK BEZÁRÁSA
+			openMenu(openedBy);
+
 			//jQuery(this).addClass("mactive");
 			jQuery("#ndwcontacts").removeClass("hidden");
 			fadeContent();

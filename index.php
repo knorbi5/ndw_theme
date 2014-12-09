@@ -38,11 +38,11 @@
 <?php
 			foreach($posts as $post){
 				$embedded = wp_oembed_get(get_post_meta($post->ID, 'ndwYoutubeLink')[0], array('width'=>450));
-				if(embedded){
+				if($embedded){
 					echo $embedded;
 				}else{
-?>
-					<img style="width: 400px;" src="<?php echo wp_get_attachment_image_src(get_post_thumbnail_id($post->ID), 'medium')[0]; ?>">
+?>	
+					<img id="mainArticleMainImage" src="<?php echo wp_get_attachment_image_src(get_post_thumbnail_id($post->ID), 'full')[0]; ?>">
 <?php
 				}
 			}
@@ -58,9 +58,9 @@
 ?>
 			</div>
 		</div>
-		<div id="ndwPostViewerContainer">
+		<div id="ndwPostViewerContainer" style="background: url('<?php echo get_bloginfo('template_directory'); ?>/images/backgrounds/transparent_lightgrey.png');">
 			<div id="ndwPostViewer">
-			<div id="ndwPostViewerHelptext">KIEMELT CIKKEK<img src="<?php echo get_bloginfo('template_directory'); ?>/images/selectedInPageMenu.png"></div>
+			<div id="ndwPostViewerHelptext">KIEMELT CIKKEK<img src="<?php echo get_bloginfo('template_directory'); ?>/images/arrow_down.png"></div>
 				<div id="ndwPostViewerScroller">
 <?php
 					$args = array('category_name'=>'kiemelt', 'posts_per_page'=>-1, 'orderby'=>'post_date', 'order'=>'DESC');
@@ -79,9 +79,9 @@
 				<a id="ndwPostViewerSelectedImageOpener" href="#"><img id="ndwPostViewerSelectedImage" src=""></a>
 			</div>
 		</div>
-		<div id="indexFooter">
+		<!--<div id="indexFooter">
 	
-		</div>
+		</div>-->
 	</div>
 <?php
 	get_footer();

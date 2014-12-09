@@ -9,9 +9,14 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Tags: dance, newdanceworld
 */
 
+html, body{
+	height: 100%;
+}
+
 body{
 	font-family: Arial, Helvetica, sans-serif;
 	margin: 0;
+	background-color: #F6F6F6;
 }
 
 html{
@@ -79,7 +84,7 @@ html{
 
 #menuitemsContainer{
 	margin: 0 auto 0 auto;
-	width: 800px;
+	width: /*800*/600px;
 	height: 40px;	
 }
 
@@ -124,8 +129,14 @@ html{
 	vertical-align: top;
 }
 
+#mainArticleMainImage{
+	width: 400px; 
+	max-height: 450px;
+}
+
 .fb-like-box{
 	margin-right: 20px;
+	vertical-align: top;
 }
 
 #mainArticleTitle{
@@ -142,7 +153,7 @@ html{
 #ndwPostViewerContainer{
 	width: 100%;
 	margin-top: 20px;
-	background: #ededed;
+	/*background: #ededed;*/
 	padding-bottom: 50px;
 }
 
@@ -193,10 +204,11 @@ html{
 
 #ndwPostViewerHelptext{
 	margin: 10px 0 10px -10px;
+	color: #e2e2e2;
 }
 
 #ndwPostViewerHelptext img{
-	width: 10px;
+	width: /*10*/13px;
 	margin-left: 10px;
 }
 
